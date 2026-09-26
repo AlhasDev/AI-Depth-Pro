@@ -6,9 +6,11 @@ OpenFX depth effects for DaVinci Resolve, using Depth Anything V2 Small through 
 
 ## Install on Windows
 
-1. Build the bundle using the steps below, or obtain a release bundle that contains `Contents/Win64/AI-Depth-Pro.ofx`, the ONNX Runtime DLLs, and `Contents/models/depth_anything_v2_vits.onnx`.
-2. Copy the **entire** `AI-Depth-Pro.ofx.bundle` folder to `C:\Program Files\Common Files\OFX\Plugins\`. Administrator permission may be required.
-3. Restart DaVinci Resolve. Add **AI Depth Pro** to a clip from the OpenFX effects list. If the plugin reports that the model cannot load, check that the model and runtime files are present in the bundle.
+1. Install Visual Studio 2022 with **Desktop development with C++** and CMake.
+2. Close DaVinci Resolve, then double-click `install.bat`. It downloads and verifies the dependencies, builds the plugin, runs every test, and requests administrator permission only for the final copy to `C:\Program Files\Common Files\OFX\Plugins\`.
+3. Restart DaVinci Resolve and add **AI Depth Pro** to a clip from the OpenFX effects list.
+
+If you only want a local bundle, run `install.bat --build-only`. The result will be in `build\AI-Depth-Pro.ofx.bundle`.
 
 The plugin has been built and exercised with a mock OpenFX host on Windows. In-Resolve installation and visual output still need real host testing. macOS and Linux builds are unverified.
 

@@ -44,7 +44,20 @@ function Test-VerifiedFile {
         return $false
     }
 
-    return (Get-FileHash -LiteralPath $Path -Algorithm $Algorithm).Hash -eq $ExpectedHash
+    $stream = [IO.File]::OpenRead($Path)
+    $hasher = $null
+    try {
+        if ($Algorithm -eq "SHA256") {
+            $hasher = [Security.Cryptography.SHA256]::Create()
+        } else {
+            $hasher = [Security.Cryptography.SHA512]::Create()
+        }
+        $actualHash = [BitConverter]::ToString($hasher.ComputeHash($stream)).Replace("-", "")
+        return $actualHash -eq $ExpectedHash
+    } finally {
+        if ($null -ne $hasher) { $hasher.Dispose() }
+        $stream.Dispose()
+    }
 }
 
 function Get-VerifiedDownload {
