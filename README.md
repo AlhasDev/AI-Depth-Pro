@@ -1,5 +1,7 @@
 # AI Depth Pro
 
+[![Windows CI](https://github.com/AlhasDev/AI-Depth-Pro/actions/workflows/windows-ci.yml/badge.svg)](https://github.com/AlhasDev/AI-Depth-Pro/actions/workflows/windows-ci.yml)
+
 OpenFX depth effects for DaVinci Resolve, using Depth Anything V2 Small through ONNX Runtime. The plugin includes depth preview, depth of field, parallax, zoom, fog, relighting, masks, edge refinement and temporal smoothing. CPU inference works; Auto tries DirectML on Windows, then CPU. CUDA, TensorRT and Metal are not implemented.
 
 ## Install on Windows
