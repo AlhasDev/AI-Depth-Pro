@@ -1,0 +1,1 @@
+Place compatible Windows x64 ONNX Runtime binaries here before building. The local DLLs were copied from the original project's existing build and are excluded from the source repository. Verify the exact package version, provenance, and redistribution notices before publishing a binary bundle. See https://onnxruntime.ai/docs/install/.

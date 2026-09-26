@@ -1,0 +1,8 @@
+build/
+models/*.onnx
+deps/onnxruntime/*.dll
+deps/onnxruntime/*.so*
+deps/onnxruntime/*.dylib
+guided-reference.bin
+*.pgm
+*.log

@@ -1,0 +1,3 @@
+1920x1080 float RGBA, 1 warmup + 5 measured iterations, median
+guided_filter_ms=111.426
+motion_estimator_ms=37.4271

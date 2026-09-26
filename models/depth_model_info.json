@@ -1,0 +1,26 @@
+{
+  "plugin": "AI Depth Pro",
+  "version": "1.0.0",
+  "models": [
+    {
+      "name": "Depth-Anything-V2-Small",
+      "filename": "depth_anything_v2_vits.onnx",
+      "format": "ONNX",
+      "input_resolution": [518, 518],
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225],
+      "output_normalized": true,
+      "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.onnx"
+    },
+    {
+      "name": "Depth-Anything-V2-Base",
+      "filename": "depth_anything_v2_vitb.onnx",
+      "format": "ONNX",
+      "input_resolution": [518, 518],
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225],
+      "output_normalized": true,
+      "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.onnx"
+    }
+  ]
+}
