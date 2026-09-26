@@ -10,17 +10,9 @@
       "mean": [0.485, 0.456, 0.406],
       "std": [0.229, 0.224, 0.225],
       "output_normalized": true,
-      "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.onnx"
-    },
-    {
-      "name": "Depth-Anything-V2-Base",
-      "filename": "depth_anything_v2_vitb.onnx",
-      "format": "ONNX",
-      "input_resolution": [518, 518],
-      "mean": [0.485, 0.456, 0.406],
-      "std": [0.229, 0.224, 0.225],
-      "output_normalized": true,
-      "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.onnx"
+      "revision": "c70d1ddbcd93c9bda8098268cc3554adf5e8dd4f",
+      "sha256": "AFB6A5C28F3B6BF1618C6E43F02073EF9DFDC70E937502D51603E57B0A1DF10C",
+      "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/resolve/c70d1ddbcd93c9bda8098268cc3554adf5e8dd4f/onnx/model.onnx"
     }
   ]
 }

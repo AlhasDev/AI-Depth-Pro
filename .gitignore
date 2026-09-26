@@ -1,5 +1,6 @@
 build/
 build-ci/
+.dependency-test/
 models/*.onnx
 deps/onnxruntime/*.dll
 deps/onnxruntime/*.so*

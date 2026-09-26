@@ -27,17 +27,18 @@ The plugin cache skips repeated AI inference; Resolve's render cache stores the 
 
 ## Build from source
 
-Requirements: Windows x64, Visual Studio 2022 C++ tools, CMake 3.16+, compatible ONNX Runtime Windows x64 binaries, and a compatible Depth Anything V2 Small ONNX model. The model and runtime DLLs are **not included in this source repository**. Obtain them from their upstream distributors and review their licenses before redistributing. See [third-party notices](THIRD_PARTY_NOTICES.md).
+Requirements: Windows x64, Visual Studio 2022 C++ tools, CMake 3.16+, PowerShell 5.1+, and internet access for the first dependency setup. The model and runtime DLLs are **not included in this source repository**.
 
-Place `depth_anything_v2_vits.onnx` in `models/`, and `onnxruntime.dll` (plus provider DLLs used by your runtime) in `deps/onnxruntime/`. Then run:
+From PowerShell, install the pinned model and Windows x64 runtime, then build and test:
 
 ```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\setup-dependencies.ps1
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DBUILD_INFERENCE_TESTS=ON
 cmake --build build --config Release --parallel 4
 ctest --test-dir build -C Release --output-on-failure
 ```
 
-The bundle will be at `build/AI-Depth-Pro.ofx.bundle`. If you do not have the model yet, configure with `-DBUILD_INFERENCE_TESTS=OFF`; tests that require the model will be skipped. The plugin itself still requires a model and ONNX Runtime to produce depth maps.
+The setup downloads roughly 300 MB on a fresh machine, checks cryptographic hashes, and skips files that are already verified. The bundle will be at `build/AI-Depth-Pro.ofx.bundle`. Run `scripts/verify.ps1` to configure, build, and test in one step after dependencies are ready. See [third-party notices](THIRD_PARTY_NOTICES.md) before redistributing the model or runtime binaries.
 
 ## Technical notes
 
