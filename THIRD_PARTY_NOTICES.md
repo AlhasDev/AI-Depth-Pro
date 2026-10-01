@@ -6,3 +6,5 @@
 - ONNX Runtime 1.24.4 is MIT-licensed and DirectML 1.15.4 is distributed under its NuGet package license. The setup script downloads their pinned official NuGet packages. Runtime binary files are excluded from this repository.
 
 The repository's MIT license applies to original plugin code and documentation, not to these upstream components.
+
+Windows release ZIPs bundle the Small model and the runtime binaries. Their license texts and runtime third-party notices are included in the ZIP's `licenses/` folder. DirectML's redistributable uses Microsoft's DirectML software license terms, rather than the MIT license for DirectML sample code.

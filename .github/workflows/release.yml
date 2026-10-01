@@ -1,0 +1,28 @@
+name: Windows release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install verified dependencies
+        shell: powershell
+        run: ./scripts/setup-dependencies.ps1
+      - name: Build and test
+        shell: powershell
+        run: ./scripts/verify.ps1
+      - name: Package
+        shell: powershell
+        run: ./scripts/package-release.ps1 -Version ($env:GITHUB_REF_NAME.Substring(1))
+      - name: Publish preview release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $assets = Get-ChildItem ./dist -File | Where-Object { $_.Name -match '\.(zip|sha256)$' } | ForEach-Object { $_.FullName }
+          gh release create "$env:GITHUB_REF_NAME" @assets --repo "$env:GITHUB_REPOSITORY" --title "AI Depth Pro $env:GITHUB_REF_NAME - Windows preview" --prerelease --notes-file ./release/NOTES.md

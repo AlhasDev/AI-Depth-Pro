@@ -1,5 +1,7 @@
 build/
 build-ci/
+dist/
+.release-input/
 .dependency-test/
 models/*.onnx
 deps/onnxruntime/*.dll
